@@ -60,6 +60,7 @@ GIT = simple_key_sequence([
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
+    KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('git log'))
 ])
 G_STATUS =simple_key_sequence([
@@ -67,6 +68,7 @@ G_STATUS =simple_key_sequence([
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
+    KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('git status'))
 ])
 G_PULL =simple_key_sequence([
@@ -74,6 +76,7 @@ G_PULL =simple_key_sequence([
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
+    KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('git pull'))
 ])
 G_COMMIT =simple_key_sequence([
@@ -81,6 +84,7 @@ G_COMMIT =simple_key_sequence([
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
+    KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('git commit -m "" author "<>"'))
 ])
 

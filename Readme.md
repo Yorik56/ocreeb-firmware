@@ -39,6 +39,28 @@ Les encodeurs rotatifs peuvent être configurés pour effectuer différentes act
 
 Pour utiliser ce clavier avec la configuration fournie, connectez-le à votre ordinateur et utilisez les touches et macros définies ci-dessus pour effectuer diverses actions. Pour tirer le meilleur parti de votre clavier, familiarisez-vous avec les différentes couches et macros disponibles.
 
+> Pour passer d'une couche à une autre, utilisez la touche `TD_LYRS` en tapotant dessus le nombre de fois correspondant à la couche souhaitée.
+
+| Nombre de tapotements | Couche   |
+|-----------------------|----------|
+| 1                     | Verrou   |
+| 2                     | Couche 1 |
+| 3                     | Aucune action |
+| 4                     | Couche 2 |
+
+| Couche | Touche 1  | Touche 2   | Touche 3 | Touche 4    |
+|--------|----------|-----------|---------|------------|
+| MACROS | TERMINAL | FORCE_QUIT| MUTE    | TD_LYRS    |
+|        | BROWSER  | CLEAR     | INSPECT | HARD_RELOAD|
+|        | GIT      | G_STATUS  | G_PULL  | G_COMMIT   |
+| RGB CTL| xxxxxxx  | xxxxxxx   | xxxxxxx | xxxxxxx    |
+|        | xxxxxxx  | RGB_MODE_SWIRL | RGB_MODE_KNIGHT | RGB_MODE_BREATHE_RAINBOW |
+|        | xxxxxxx  | RGB_MODE_PLAIN | RGB_MODE_BREATHE | RGB_MODE_RAINBOW |
+| MIDI   | MIDI(30) | MIDI(69)  | MIDI(70)| MIDI_OUT   |
+|        | MIDI(67) | MIDI(66)  | MIDI(65)| MIDI(64)   |
+|        | MIDI(60) | MIDI(61)  | MIDI(62)| MIDI(63)   |
+
+
 ## Documentation KMK
 
 [Documentation KMK pour configurer les touches](http://kmkfw.io/docs/keycodes/)

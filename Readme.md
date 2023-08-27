@@ -1,5 +1,7 @@
 # Documentation pour l'utilisation du clavier avec la configuration fournie
 
+![apeçu du clavier ocreeb](assets/images/visual_ocreeb.png)
+
 ## Aperçu général
 
 Cette configuration définie pour le clavier propose plusieurs couches et macros pour faciliter et personnaliser votre expérience de frappe.
@@ -36,3 +38,7 @@ Les encodeurs rotatifs peuvent être configurés pour effectuer différentes act
 ## Utilisation
 
 Pour utiliser ce clavier avec la configuration fournie, connectez-le à votre ordinateur et utilisez les touches et macros définies ci-dessus pour effectuer diverses actions. Pour tirer le meilleur parti de votre clavier, familiarisez-vous avec les différentes couches et macros disponibles.
+
+## Documentation KMK
+
+[Documentation KMK pour configurer les touches](http://kmkfw.io/docs/keycodes/)

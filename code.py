@@ -59,23 +59,62 @@ GIT = simple_key_sequence([
     KC.LGUI(KC.R),
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER,
+    send_string(azerty_to_qwerty('git log')),
     KC.ENTER
 ])
-G_STATUS = KC.A
-G_PULL = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string(azerty_to_qwerty('git fetch origin')), KC.ENTER])
-G_COMMIT = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string(azerty_to_qwerty('git commit -m ""')), KC.LEFT])
+G_STATUS =simple_key_sequence([
+    KC.LGUI(KC.R),
+    KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER,
+    send_string(azerty_to_qwerty('git status')),
+    KC.ENTER
+])
+G_PULL =simple_key_sequence([
+    KC.LGUI(KC.R),
+    KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER,
+    send_string(azerty_to_qwerty('git pull')),
+    KC.ENTER
+])
+G_COMMIT =simple_key_sequence([
+    KC.LGUI(KC.R),
+    KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER,
+    send_string(azerty_to_qwerty('git commit -m "" author "<>"')),
+    KC.ENTER
+])
 
 # MACROS ROW 2
-BROWSER = send_string("e")
-CLEAR = send_string("f")
-INSPECT = send_string("g") #?
-HARD_RELOAD = send_string("h")
+BROWSER = simple_key_sequence([
+    KC.LGUI(KC.R),
+    KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('www.google.com')),
+    KC.ENTER
+])
+CLEAR = simple_key_sequence([
+    KC.LCMD(KC.Q),
+    KC.MACRO_SLEEP_MS(1000),
+    KC.BSPC
+])
+INSPECT = KC.F12
+HARD_RELOAD = simple_key_sequence([
+    KC.LCMD(KC.R)
+])
 
 # MACROS ROW 3
-TERMINAL = send_string("i")
-FORCE_QUIT = send_string("j")
-MUTE = send_string("k") #?
-LOCK = send_string("l")
+TERMINAL = simple_key_sequence([
+   KC.LGUI(KC.R),
+   KC.MACRO_SLEEP_MS(1000),
+   send_string(azerty_to_qwerty('cmd')),
+   KC.ENTER
+])
+FORCE_QUIT = simple_key_sequence([KC.LALT(KC.F4)])
+MUTE = KC.MUTE
+LOCK = simple_key_sequence([KC.LGUI(KC.L)])
 
 
 # La constante "_______" représente une touche "transparente". Lorsqu'elle est utilisée dans une couche de clavier,

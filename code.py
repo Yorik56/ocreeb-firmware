@@ -3,7 +3,6 @@ print("Starting")
 
 # Importation des modules nécessaires pour le fonctionnement du clavier.
 import board  # Importation de la bibliothèque 'board' qui donne accès aux pins et autres fonctionnalités du microcontrôleur.
-
 from kmk.kmk_keyboard import KMKKeyboard  # Importation de la bibliothèque 'board' qui donne accès aux pins et autres fonctionnalités du microcontrôleur.
 from kmk.keys import KC
 from kmk.matrix import DiodeOrientation
@@ -14,6 +13,22 @@ from kmk.modules.tapdance import TapDance
 from kmk.extensions.RGB import RGB
 from midi import Midi
 
+def azerty_to_qwerty(text):
+    conversion = {
+        'a': 'q', 'z': 'w', 'e': 'e', 'r': 'r', 't': 't', 'y': 'y', 'u': 'u', 'i': 'i',
+        'o': 'o', 'p': 'p', 'q': 'a', 's': 's', 'd': 'd', 'f': 'f', 'g': 'g', 'h': 'h',
+        'j': 'j', 'k': 'k', 'l': 'l', 'm': ';', 'w': 'z', 'x': 'x', 'c': 'c', 'v': 'v',
+        'b': 'b', 'n': 'n', ',': 'm', ';': ',', ':': '.', '!': '/', '0': '0', '1': '1',
+        '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9',
+        '°': ')', '&': '1', 'é': '2', '"': '3', '\'': '4', '(': '5', '-': '6', 'è': '7',
+        '_': '8', 'ç': '9', 'à': '0', ')': '°', '=': '+', '^': '[', '$': ']', 'ù': '\\',
+        '*': '^', '<': '<', '>': '>', '?': '?', '.': ':', '/': '!', '%': 'ù', '£': '*',
+        'µ': 'µ', '+': '=', '|': '|', '{': '{', '}': '}', '@': '@', '#': '#'
+    }
+    # Ajouter les majuscules au dictionnaire
+    conversion.update({k.upper(): v.upper() for k, v in conversion.items()})
+
+    return ''.join(conversion.get(char, char) for char in text)
 
 # Initialisation et configuration de l'objet clavier.
 # KEYTBOARD SETUP
@@ -39,23 +54,28 @@ keyboard.extensions.append(rgb_ext)
 keyboard.extensions.append(midi_ext)
 keyboard.debug_enabled = False
 
-# MACROS ROW 1: Définition des macros, qui sont des séquences de touches programmées pour exécuter des actions spécifiques.
-GIT = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string('open https://github.com'), KC.ENTER])
-G_STATUS = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string('git status'), KC.ENTER])
-G_PULL = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string('git fetch origin'), KC.ENTER])
-G_COMMIT = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string('git commit -m ""'), KC.LEFT])
+# MACROS ROW 1
+GIT = simple_key_sequence([
+    KC.LGUI(KC.R),
+    KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER
+])
+G_STATUS = KC.A
+G_PULL = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string(azerty_to_qwerty('git fetch origin')), KC.ENTER])
+G_COMMIT = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string(azerty_to_qwerty('git commit -m ""')), KC.LEFT])
 
-# MACROS ROW 2: Définition des macros, qui sont des séquences de touches programmées pour exécuter des actions spécifiques.
-BROWSER = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.MACRO_SLEEP_MS(1000), KC.LCTRL(KC.U), send_string('open https://ocrism.studio'), KC.ENTER])
-CLEAR = simple_key_sequence([KC.LCMD(KC.LSFT(KC.BSPC))])
-INSPECT = simple_key_sequence([KC.LCMD(KC.LALT(KC.I))])
-HARD_RELOAD = simple_key_sequence([KC.LCMD(KC.LSFT(KC.R))])
+# MACROS ROW 2
+BROWSER = send_string("e")
+CLEAR = send_string("f")
+INSPECT = send_string("g") #?
+HARD_RELOAD = send_string("h")
 
-# MACROS ROW 3: Définition des macros, qui sont des séquences de touches programmées pour exécuter des actions spécifiques.
-TERMINAL = simple_key_sequence([KC.LCMD(KC.LALT(KC.LSFT(KC.T))), KC.LCTRL(KC.U)])
-FORCE_QUIT = simple_key_sequence([KC.LCMD(KC.LALT(KC.ESCAPE))])
-MUTE = KC.MUTE
-LOCK = simple_key_sequence([KC.LCTRL(KC.LCMD(KC.Q)), KC.MACRO_SLEEP_MS(400), KC.ESCAPE])
+# MACROS ROW 3
+TERMINAL = send_string("i")
+FORCE_QUIT = send_string("j")
+MUTE = send_string("k") #?
+LOCK = send_string("l")
 
 
 # La constante "_______" représente une touche "transparente". Lorsqu'elle est utilisée dans une couche de clavier,

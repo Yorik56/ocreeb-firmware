@@ -60,49 +60,47 @@ GIT = simple_key_sequence([
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
-    send_string(azerty_to_qwerty('git log')),
-    KC.ENTER
+    send_string(azerty_to_qwerty('git log'))
 ])
 G_STATUS =simple_key_sequence([
     KC.LGUI(KC.R),
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
-    send_string(azerty_to_qwerty('git status')),
-    KC.ENTER
+    send_string(azerty_to_qwerty('git status'))
 ])
 G_PULL =simple_key_sequence([
     KC.LGUI(KC.R),
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
-    send_string(azerty_to_qwerty('git pull')),
-    KC.ENTER
+    send_string(azerty_to_qwerty('git pull'))
 ])
 G_COMMIT =simple_key_sequence([
     KC.LGUI(KC.R),
     KC.MACRO_SLEEP_MS(1000),
     send_string(azerty_to_qwerty('cmd')),
     KC.ENTER,
-    send_string(azerty_to_qwerty('git commit -m "" author "<>"')),
-    KC.ENTER
+    send_string(azerty_to_qwerty('git commit -m "" author "<>"'))
 ])
 
 # MACROS ROW 2
 BROWSER = simple_key_sequence([
     KC.LGUI(KC.R),
     KC.MACRO_SLEEP_MS(1000),
+    send_string(azerty_to_qwerty('cmd')),
+    KC.ENTER,
     send_string(azerty_to_qwerty('www.google.com')),
     KC.ENTER
 ])
 CLEAR = simple_key_sequence([
-    KC.LCMD(KC.Q),
+    KC.LCTRL(KC.Q),
     KC.MACRO_SLEEP_MS(1000),
     KC.BSPC
 ])
-INSPECT = KC.F12
+INSPECT = KC.LCTRL(KC.LSHIFT(KC.I))
 HARD_RELOAD = simple_key_sequence([
-    KC.LCMD(KC.R)
+    KC.LCTRL(KC.R)
 ])
 
 # MACROS ROW 3
@@ -141,7 +139,7 @@ MIDI_OUT = KC.TD(KC.MIDI(70), xxxxxxx, xxxxxxx, KC.TO(0))
 keyboard.keymap = [
     # MACROS
     [
-        TERMINAL,   FORCE_QUIT,     KC.MUTE,    TD_LYRS,
+        TERMINAL,   FORCE_QUIT,     MUTE,    TD_LYRS,
         BROWSER,    CLEAR,          INSPECT,    HARD_RELOAD,
         GIT,    G_STATUS,       G_PULL,     G_COMMIT,
     ],
